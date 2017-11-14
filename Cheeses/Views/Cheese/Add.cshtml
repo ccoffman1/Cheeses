@@ -3,9 +3,13 @@
 }
 
 <h2>Add Cheese</h2>
-
+<br />
+@if (ViewBag.errorMessage == false)
+{
+    <p>Cheese name must only contain letters.</p>
+}
 <form method="post">
-    <input name="name" type="text" value="Cheese Name"/>
+    <input name="name" type="text" value="Cheese Name" required />
     <input name="description" value="Cheese Description" type="text"/>
     <input type="submit" value="Add Cheese" />
 </form>

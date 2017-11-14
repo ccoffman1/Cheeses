@@ -34,6 +34,20 @@ namespace CheeseMVC.Controllers
         public IActionResult NewCheese(string name, string description)
         {
             
+            //foreach (char i in name)
+            //{
+            //    if (!char.IsLetter(i))
+            //    {
+            //        bool errorMessage = false;
+                    
+            //        ViewBag.errorMessage = errorMessage;
+
+            //        return Redirect("/Cheese/Add");
+            //    }
+            //}
+
+            // this should allow the description to be left blank on submission
+            
             // Add the new cheese to my existing cheeses
 
             Cheeses.Add(name, description);
@@ -55,13 +69,18 @@ namespace CheeseMVC.Controllers
 
         [HttpPost]
         [Route("/Cheese/Remove")]
-        public IActionResult GoneCheese(string name)
+        public IActionResult GoneCheese(List<string> name)
         {
 
             // Remove the new cheese to my existing cheeses
             
-            Cheeses.Remove(name);
             
+
+            foreach (var slice in name)
+            {
+                Cheeses.Remove(slice);
+            }
+
             return Redirect("/Cheese");
 
         }

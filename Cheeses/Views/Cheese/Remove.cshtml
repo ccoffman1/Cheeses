@@ -8,6 +8,7 @@
     @foreach (var cheese in ViewBag.Cheeses)
     {
     <input name="name" type="checkbox" value="@cheese.Key" />@cheese.Key
+    <br />
     }
     <input type="submit" value="Remove Cheese" />
 </form>
